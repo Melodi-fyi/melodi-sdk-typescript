@@ -1,0 +1,16 @@
+{
+  "name": "melodi-sdk-typescript",
+  "version": "0.0.0",
+  "description": "Thin skd for getting your data into Melodi",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melodi-fyi/melodi-sdk-typescript.git"
+  },
+  "author": "Greg Brown (greg@melodi.fyi)",
+  "bugs": {
+    "url": "https://github.com/Melodi-fyi/melodi-sdk-typescript/issues"
+  },
+  "homepage": "https://github.com/Melodi-fyi/melodi-sdk-typescript#readme"
+}
