@@ -16,7 +16,7 @@ export async function createLog(
   if (typeof createLogRequest.data == "string") {
     data = { response: createLogRequest.data };
   } else {
-    data = JSON.stringify(createLogRequest.data);
+    data = createLogRequest.data;
   }
 
   const response = await fetch(
