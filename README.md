@@ -2,7 +2,11 @@
 
 Thin sdk for getting your data into Melodi
 
-# Create logs in Melodi
+## Install
+
+`npm i @melodi/melodi-sdk-typescript`
+
+## Create logs in Melodi
 
 Log an llm response to Melodi.
 
