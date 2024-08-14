@@ -8,6 +8,7 @@
     "examples": "tsc && node dist/examples.js"
   },
   "dependencies": {
-    "@melodi/melodi-sdk-typescript": "file:../"
+    "@melodi/melodi-sdk-typescript": "file:../",
+    "dotenv": "^16.4.5"
   }
 }

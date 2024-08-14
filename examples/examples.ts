@@ -6,6 +6,7 @@ import {
   LogInputType,
   LogOutputType,
 } from "@melodi/melodi-sdk-typescript";
+import "dotenv/config";
 
 const createLogInputRequest: CreateLogInputRequest = {
   type: LogInputType.messages,
@@ -31,4 +32,4 @@ const createLogRequest: CreateLogRequest = {
   output: createLogOutputRequest,
 };
 
-createLog(createLogRequest, "a");
+createLog(createLogRequest);
