@@ -31,7 +31,9 @@ export async function createLog(
       // pass
     }
     throw new Error(
-      `An error occurred creating the log: status ${response.status}, response body: ${body}`
+      `An error occurred creating the log: status ${
+        response.status
+      }, response body: ${JSON.stringify(body)}`
     );
   }
 
