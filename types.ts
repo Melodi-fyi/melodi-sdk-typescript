@@ -15,7 +15,7 @@ export type CreateMessageRequest = {
 
   role: string;
   content: string;
-  metadata: Metadata;
+  metadata?: Metadata;
 };
 
 export enum LogInputType {

@@ -1,0 +1,13 @@
+{
+  "name": "melodi-sdk-typescript-examples",
+  "version": "1.0.0",
+  "description": "Usage examples for the Melodi Typescript SDK.",
+  "main": "examples.js",
+  "private": true,
+  "scripts": {
+    "examples": "tsc && node dist/examples/examples.js"
+  },
+  "dependencies": {
+    "@melodi/melodi-sdk-typescript": "file:.."
+  }
+}
