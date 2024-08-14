@@ -1,4 +1,11 @@
-import { CreateLogInputRequest, LogInputType } from "../types";
+import {
+  createLog,
+  CreateLogInputRequest,
+  CreateLogOutputRequest,
+  CreateLogRequest,
+  LogInputType,
+  LogOutputType,
+} from "@melodi/melodi-sdk-typescript";
 
 const createLogInputRequest: CreateLogInputRequest = {
   type: LogInputType.messages,
@@ -10,4 +17,18 @@ const createLogInputRequest: CreateLogInputRequest = {
   ],
 };
 
-console.log(createLogInputRequest);
+const createLogOutputRequest: CreateLogOutputRequest = {
+  type: LogOutputType.messages,
+  message: {
+    role: "assistant",
+    content: "Hi!",
+  },
+};
+
+const createLogRequest: CreateLogRequest = {
+  projectId: 64,
+  input: createLogInputRequest,
+  output: createLogOutputRequest,
+};
+
+createLog(createLogRequest, "a");

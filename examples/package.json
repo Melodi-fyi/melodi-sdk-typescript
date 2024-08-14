@@ -5,9 +5,9 @@
   "main": "examples.js",
   "private": true,
   "scripts": {
-    "examples": "tsc && node dist/examples/examples.js"
+    "examples": "tsc && node dist/examples.js"
   },
   "dependencies": {
-    "@melodi/melodi-sdk-typescript": "file:.."
+    "@melodi/melodi-sdk-typescript": "file:../"
   }
 }
