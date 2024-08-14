@@ -1,4 +1,4 @@
-import { CreateLogRequest, Log } from "./types";
+import { CreateLogRequest } from "./types";
 
 export async function createLog(
   createLogRequest: CreateLogRequest,
@@ -12,13 +12,6 @@ export async function createLog(
     );
   }
 
-  let data;
-  if (typeof createLogRequest.data == "string") {
-    data = { response: createLogRequest.data };
-  } else {
-    data = createLogRequest.data;
-  }
-
   const response = await fetch(
     `https://app.melodi.fyi/api/external/logs?apiKey=${key}`,
     {
@@ -26,11 +19,7 @@ export async function createLog(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        data,
-        projectName: createLogRequest.projectName,
-        versionName: createLogRequest.versionName,
-      }),
+      body: JSON.stringify(createLogRequest),
     }
   );
 
@@ -46,7 +35,7 @@ export async function createLog(
     );
   }
 
-  const log: Log = await response.json();
+  const log = await response.json();
 
   return log;
 }
