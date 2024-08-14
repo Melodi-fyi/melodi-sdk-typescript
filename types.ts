@@ -59,6 +59,6 @@ export type CreateLogRequest = {
   input: CreateLogInputRequest;
   output: CreateLogOutputRequest;
 
-  metadata: Metadata;
+  metadata?: Metadata;
   externalUser?: CreateExternalUserRequest;
 };
