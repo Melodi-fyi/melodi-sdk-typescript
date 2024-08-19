@@ -62,3 +62,19 @@ export type CreateLogRequest = {
   metadata?: Metadata;
   externalUser?: CreateExternalUserRequest;
 };
+
+export enum FeedbackType {
+  positive = "positive",
+  negative = "negative",
+}
+
+export type CreateFeedbackRequest = {
+  feedbackType: FeedbackType;
+  feedbackText?: string;
+  externalUser?: CreateExternalUserRequest;
+  log?: CreateLogRequest;
+  logId?: number;
+  externalLogId?: string;
+  externalThreadId?: string;
+  externalMessageId?: string;
+};
