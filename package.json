@@ -1,7 +1,7 @@
 {
   "name": "@melodi/melodi-sdk-typescript",
-  "version": "0.0.6",
-  "description": "Thin skd for getting your data into Melodi",
+  "version": "0.0.7",
+  "description": "Thin sdk for getting your data into Melodi",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

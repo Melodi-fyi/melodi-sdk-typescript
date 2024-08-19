@@ -34,7 +34,7 @@ export type CreateLogInputRequest = {
 export enum LogOutputType {
   json = "json",
   markdown = "markdown",
-  messages = "message",
+  message = "message",
 }
 
 export type CreateLogOutputRequest = {
