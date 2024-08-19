@@ -56,7 +56,7 @@ export type CreateLogRequest = {
   externalId?: string;
   externalThreadId?: string;
 
-  input: CreateLogInputRequest;
+  input?: CreateLogInputRequest;
   output: CreateLogOutputRequest;
 
   metadata?: Metadata;
