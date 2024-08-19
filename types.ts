@@ -34,7 +34,7 @@ export type CreateLogInputRequest = {
 export enum LogOutputType {
   json = "json",
   markdown = "markdown",
-  messages = "message",
+  message = "message",
 }
 
 export type CreateLogOutputRequest = {
@@ -56,9 +56,25 @@ export type CreateLogRequest = {
   externalId?: string;
   externalThreadId?: string;
 
-  input: CreateLogInputRequest;
+  input?: CreateLogInputRequest;
   output: CreateLogOutputRequest;
 
   metadata?: Metadata;
   externalUser?: CreateExternalUserRequest;
+};
+
+export enum FeedbackType {
+  positive = "positive",
+  negative = "negative",
+}
+
+export type CreateFeedbackRequest = {
+  feedbackType: FeedbackType;
+  feedbackText?: string;
+  externalUser?: CreateExternalUserRequest;
+  log?: CreateLogRequest;
+  logId?: number;
+  externalLogId?: string;
+  externalThreadId?: string;
+  externalMessageId?: string;
 };
