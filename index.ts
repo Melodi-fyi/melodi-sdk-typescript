@@ -7,9 +7,6 @@ import {
   CreateLogOutputRequest,
   CreateLogRequest,
   CreateMessageRequest,
-  FeedbackType,
-  LogInputType,
-  LogOutputType,
   Metadata,
 } from "./types";
 
@@ -22,8 +19,5 @@ export {
   CreateLogOutputRequest,
   CreateLogRequest,
   CreateMessageRequest,
-  FeedbackType,
-  LogInputType,
-  LogOutputType,
   Metadata,
 };

@@ -18,27 +18,15 @@ export type CreateMessageRequest = {
   metadata?: Metadata;
 };
 
-export enum LogInputType {
-  json = "json",
-  markdown = "markdown",
-  messages = "messages",
-}
-
 export type CreateLogInputRequest = {
-  type: LogInputType;
+  type: "json" | "markdown" | "messages";
   json?: JSONObject;
   mardown?: string;
   messages?: CreateMessageRequest[];
 };
 
-export enum LogOutputType {
-  json = "json",
-  markdown = "markdown",
-  message = "message",
-}
-
 export type CreateLogOutputRequest = {
-  type: LogOutputType;
+  type: "json" | "markdown" | "message";
   json?: JSONObject;
   mardown?: string;
   message?: CreateMessageRequest;
@@ -63,13 +51,8 @@ export type CreateLogRequest = {
   externalUser?: CreateExternalUserRequest;
 };
 
-export enum FeedbackType {
-  positive = "positive",
-  negative = "negative",
-}
-
 export type CreateFeedbackRequest = {
-  feedbackType: FeedbackType;
+  feedbackType: "positive" | "negative";
   feedbackText?: string;
   externalUser?: CreateExternalUserRequest;
   log?: CreateLogRequest;
