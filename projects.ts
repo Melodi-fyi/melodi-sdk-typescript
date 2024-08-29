@@ -1,13 +1,14 @@
-import { CreateProjectRequest, CreateProjectResponse, ProjectResponse } from "./types";
+import {
+  CreateProjectRequest,
+  CreateProjectResponse,
+  ProjectResponse,
+} from "./types";
+import { checkForBadResponse, getApiKeyOrError } from "./utils";
 
-export async function listProjects(apiKey?: string): Promise<ProjectResponse[]> {
-  const key = apiKey || process.env.MELODI_API_KEY;
-
-  if (!key) {
-    throw new Error(
-      "Either pass apiKey as an argument or set MELODI_API_KEY in your environment variables"
-    );
-  }
+export async function listProjects(
+  apiKey?: string
+): Promise<ProjectResponse[]> {
+  const key = getApiKeyOrError(apiKey);
 
   const response = await fetch(
     `https://app.melodi.fyi/api/external/projects?apiKey=${key}`,
@@ -19,19 +20,7 @@ export async function listProjects(apiKey?: string): Promise<ProjectResponse[]> 
     }
   );
 
-  if (response.status !== 200) {
-    let body = "";
-    try {
-      body = await response.json();
-    } catch (e) {
-      // pass
-    }
-    throw new Error(
-      `An error occurred fetching the projects: status ${
-        response.status
-      }, response body: ${JSON.stringify(body)}`
-    );
-  }
+  await checkForBadResponse(response);
 
   const projects: ProjectResponse[] = await response.json();
   return projects;
@@ -41,13 +30,7 @@ export async function createProject(
   createProjectRequest: CreateProjectRequest,
   apiKey?: string
 ): Promise<CreateProjectResponse> {
-  const key = apiKey || process.env.MELODI_API_KEY;
-
-  if (!key) {
-    throw new Error(
-      "Either pass apiKey as an argument or set MELODI_API_KEY in your environment variables"
-    );
-  }
+  const key = getApiKeyOrError(apiKey);
 
   const response = await fetch(
     `https://app.melodi.fyi/api/external/projects?apiKey=${key}`,
@@ -60,19 +43,7 @@ export async function createProject(
     }
   );
 
-  if (response.status !== 200) {
-    let body = "";
-    try {
-      body = await response.json();
-    } catch (e) {
-      // pass
-    }
-    throw new Error(
-      `An error occurred creating the project: status ${
-        response.status
-      }, response body: ${JSON.stringify(body)}`
-    );
-  }
+  await checkForBadResponse(response);
 
   const project: CreateProjectResponse = await response.json();
   return project;
