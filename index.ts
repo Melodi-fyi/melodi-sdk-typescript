@@ -1,23 +1,18 @@
 import { createFeedback } from "./feedback";
-import { createLog } from "./logs";
 import {
   CreateExternalUserRequest,
   CreateFeedbackRequest,
-  CreateLogInputRequest,
-  CreateLogOutputRequest,
-  CreateLogRequest,
   CreateMessageRequest,
+  CreateThreadRequest,
   Metadata,
 } from "./types";
 
-export { createFeedback, createLog };
+export { createFeedback };
 
 export {
   CreateExternalUserRequest,
   CreateFeedbackRequest,
-  CreateLogInputRequest,
-  CreateLogOutputRequest,
-  CreateLogRequest,
   CreateMessageRequest,
+  CreateThreadRequest,
   Metadata,
 };

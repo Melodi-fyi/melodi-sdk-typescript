@@ -11,25 +11,11 @@ export type Metadata = {
 };
 
 export type CreateMessageRequest = {
-  externalId?: string;
+  externalId: string;
 
   role: string;
   content: string;
   metadata?: Metadata;
-};
-
-export type CreateLogInputRequest = {
-  type: "json" | "markdown" | "messages";
-  json?: JSONObject;
-  mardown?: string;
-  messages?: CreateMessageRequest[];
-};
-
-export type CreateLogOutputRequest = {
-  type: "json" | "markdown" | "message";
-  json?: JSONObject;
-  mardown?: string;
-  message?: CreateMessageRequest;
 };
 
 export type CreateExternalUserRequest = {
@@ -38,26 +24,18 @@ export type CreateExternalUserRequest = {
   name?: string;
 };
 
-export type CreateLogRequest = {
-  projectId: number;
-
+export type CreateThreadRequest = {
   externalId?: string;
-  externalThreadId?: string;
-
-  input?: CreateLogInputRequest;
-  output: CreateLogOutputRequest;
-
-  metadata?: Metadata;
-  externalUser?: CreateExternalUserRequest;
+  projectId: number;
+  messages: CreateMessageRequest[];
+  metadata: Metadata;
 };
 
 export type CreateFeedbackRequest = {
   feedbackType: "positive" | "negative";
   feedbackText?: string;
   externalUser?: CreateExternalUserRequest;
-  log?: CreateLogRequest;
-  logId?: number;
-  externalLogId?: string;
+  thread?: CreateThreadRequest;
   externalThreadId?: string;
-  externalMessageId?: string;
+  externalMessageId: string;
 };
