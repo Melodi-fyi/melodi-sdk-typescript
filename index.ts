@@ -1,5 +1,7 @@
 import { createFeedback } from "./feedback";
 import { createLog } from "./logs";
+import { listProjects, createProject } from "./projects";
+
 import {
   CreateExternalUserRequest,
   CreateFeedbackRequest,
@@ -8,9 +10,12 @@ import {
   CreateLogRequest,
   CreateMessageRequest,
   Metadata,
+  ProjectResponse,
+  CreateProjectRequest,
+  CreateProjectResponse 
 } from "./types";
 
-export { createFeedback, createLog };
+export { createFeedback, createLog, listProjects, createProject };
 
 export {
   CreateExternalUserRequest,
@@ -20,4 +25,7 @@ export {
   CreateLogRequest,
   CreateMessageRequest,
   Metadata,
+  ProjectResponse,
+  CreateProjectRequest,
+  CreateProjectResponse
 };
