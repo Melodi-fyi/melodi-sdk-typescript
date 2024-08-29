@@ -70,3 +70,6 @@ export interface ProjectResponse {
   updatedAt: string;
 }
 
+export interface ThreadResponse {
+  id: number;
+}
