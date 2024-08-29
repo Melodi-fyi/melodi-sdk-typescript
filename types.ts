@@ -39,3 +39,34 @@ export type CreateFeedbackRequest = {
   externalThreadId?: string;
   externalMessageId: string;
 };
+
+export interface CreateProjectRequest {
+  name: string;
+}
+
+export interface CreateProjectResponse {
+  id: number;
+  name: string;
+  organizationId: number;
+  userId?: number;
+  isDefault: boolean;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ProjectResponse {
+  id: number;
+  name: string;
+  organizationId: number;
+  userId?: number;
+  isDefault: boolean;
+  isDeleted: boolean;
+  chainId?: number;
+  chainDisplayOrder?: number;
+  useCase?: string;
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
