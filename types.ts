@@ -28,7 +28,7 @@ export type CreateThreadRequest = {
   externalId?: string;
   projectId: number;
   messages: CreateMessageRequest[];
-  metadata: Metadata;
+  metadata?: Metadata;
 };
 
 export type CreateFeedbackRequest = {

@@ -8,9 +8,9 @@ export async function createOrUpdateThread(
   const key = getApiKeyOrError(apiKey);
 
   const response = await fetch(
-    `https://app.melodi.fyi/api/external/projects?apiKey=${key}`,
+    `https://app.melodi.fyi/api/external/threads?apiKey=${key}`,
     {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
