@@ -7,7 +7,7 @@ import "dotenv/config";
 async function createExampleThread() {
   const createThreadRequest: CreateThreadRequest = {
     projectId: 64,
-    externalId: "typescript-sdk-example-2",
+    externalId: "typescript-sdk-example-3",
     messages: [
       {
         externalId: "1",
@@ -27,7 +27,7 @@ async function createExampleThread() {
 
   const createThreadRequest2: CreateThreadRequest = {
     projectId: 64,
-    externalId: "typescript-sdk-example-2",
+    externalId: "typescript-sdk-example-3",
     messages: [
       {
         externalId: "1",

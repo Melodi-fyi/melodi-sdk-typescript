@@ -58,6 +58,10 @@ export async function post(route: string, body: any, apiKey?: string) {
   return request(route, "POST", body, apiKey);
 }
 
+export async function put(route: string, body: any, apiKey?: string) {
+  return request(route, "PUT", body, apiKey);
+}
+
 export async function get(route: string, apiKey?: string) {
   return request(route, "GET", undefined, apiKey);
 }

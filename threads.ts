@@ -1,11 +1,11 @@
 import { CreateThreadRequest, ThreadResponse } from "./types";
-import { post } from "./utils";
+import { put } from "./utils";
 
 export async function createOrUpdateThread(
   createThreadRequest: CreateThreadRequest,
   apiKey?: string
 ): Promise<ThreadResponse> {
-  const thread: ThreadResponse = await post(
+  const thread: ThreadResponse = await put(
     "threads",
     createThreadRequest,
     apiKey
