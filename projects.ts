@@ -3,26 +3,12 @@ import {
   CreateProjectResponse,
   ProjectResponse,
 } from "./types";
-import { checkForBadResponse, getApiKeyOrError } from "./utils";
+import { get, post } from "./utils";
 
 export async function listProjects(
   apiKey?: string
 ): Promise<ProjectResponse[]> {
-  const key = getApiKeyOrError(apiKey);
-
-  const response = await fetch(
-    `https://app.melodi.fyi/api/external/projects?apiKey=${key}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  await checkForBadResponse(response);
-
-  const projects: ProjectResponse[] = await response.json();
+  const projects: ProjectResponse[] = await get("projects", apiKey);
   return projects;
 }
 
@@ -30,21 +16,10 @@ export async function createProject(
   createProjectRequest: CreateProjectRequest,
   apiKey?: string
 ): Promise<CreateProjectResponse> {
-  const key = getApiKeyOrError(apiKey);
-
-  const response = await fetch(
-    `https://app.melodi.fyi/api/external/projects?apiKey=${key}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(createProjectRequest),
-    }
+  const project: CreateProjectResponse = await post(
+    "projects",
+    createProjectRequest,
+    apiKey
   );
-
-  await checkForBadResponse(response);
-
-  const project: CreateProjectResponse = await response.json();
   return project;
 }
