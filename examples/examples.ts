@@ -7,7 +7,7 @@ import "dotenv/config";
 async function createExampleThread() {
   const createThreadRequest: CreateThreadRequest = {
     projectId: 64,
-    externalId: "typescript-sdk-example-8",
+    externalId: "typescript-sdk-example-9",
     messages: [
       {
         externalId: "1",
@@ -33,7 +33,7 @@ async function createExampleThread() {
 
   const createThreadRequest2: CreateThreadRequest = {
     projectId: 64,
-    externalId: "typescript-sdk-example-8",
+    externalId: "typescript-sdk-example-9",
     messages: [
       {
         externalId: "1",
@@ -52,6 +52,17 @@ async function createExampleThread() {
       },
       {
         externalId: "4",
+        role: "tool",
+        type: "json",
+        jsonContent: {
+          favoriteColorInfo: {
+            type: "color",
+            color: "blue",
+          },
+        },
+      },
+      {
+        externalId: "5",
         role: "assistant",
         content: "My favorite color is blue. Thanks so much for asking!!!!",
       },

@@ -12,9 +12,13 @@ export type Metadata = {
 
 export type CreateMessageRequest = {
   externalId: string;
+  type?: "mardkown" | "json";
 
   role: string;
-  content: string;
+
+  content?: string;
+  jsonContent?: JSONObject;
+
   metadata?: Metadata;
 };
 
