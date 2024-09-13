@@ -22,6 +22,7 @@ export type CreateExternalUserRequest = {
   externalId: string;
   email?: string;
   name?: string;
+  segments?: Record<string, string>;
 };
 
 export type CreateThreadRequest = {
