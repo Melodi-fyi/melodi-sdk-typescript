@@ -44,6 +44,7 @@ export type CreateFeedbackRequest = {
   thread?: CreateThreadRequest;
   externalThreadId?: string;
   externalMessageId: string;
+  attributes?: Record<string, string>;
 };
 
 export interface CreateProjectRequest {
@@ -78,4 +79,16 @@ export interface ProjectResponse {
 
 export interface ThreadResponse {
   id: number;
+}
+
+export interface FeedbackResponse {
+  id: number;
+  feedbackType: "POSITIVE" | "NEGATIVE";
+  feedbackText?: string;
+  isRead: boolean;
+  isDeleted: boolean;
+  userId?: number;
+  externalUserId?: number;
+  createdAt: "2024-09-18T05:14:21.634Z";
+  updatedAt: "2024-09-18T05:14:21.634Z";
 }
