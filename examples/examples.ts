@@ -1,4 +1,5 @@
 import {
+  CreateExternalUserRequest,
   createFeedback,
   CreateFeedbackRequest,
   createOrUpdateThread,
@@ -7,7 +8,14 @@ import {
 import "dotenv/config";
 
 async function createExampleThread() {
-  const externalThreadId = "typescript-sdk-example-10";
+  const externalThreadId = "typescript-sdk-example-11";
+  const externalUser: CreateExternalUserRequest = {
+    externalId: "testuserid1",
+    name: "Greg Brown",
+    email: "greg+test@melodi.fyi",
+    segments: { team: "engineering" },
+  };
+
   const createThreadRequest: CreateThreadRequest = {
     projectId: 64,
     externalId: externalThreadId,
@@ -23,12 +31,7 @@ async function createExampleThread() {
         content: "Hi!",
       },
     ],
-    externalUser: {
-      externalId: "testuserid1",
-      name: "Greg Brown",
-      email: "greg+test@melodi.fyi",
-      segments: { team: "engineering" },
-    },
+    externalUser,
   };
 
   const response1 = await createOrUpdateThread(createThreadRequest);
@@ -76,12 +79,12 @@ async function createExampleThread() {
   console.log(response2);
 
   const feedbackRequest: CreateFeedbackRequest = {
-    feedbackType: "positive",
     externalThreadId: externalThreadId,
     externalMessageId: "5",
     attributes: {
       Quality: "Wonderful",
     },
+    externalUser,
   };
 
   const response3 = await createFeedback(feedbackRequest);

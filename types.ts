@@ -38,7 +38,7 @@ export type CreateThreadRequest = {
 };
 
 export type CreateFeedbackRequest = {
-  feedbackType: "positive" | "negative";
+  feedbackType?: "positive" | "negative";
   feedbackText?: string;
   externalUser?: CreateExternalUserRequest;
   thread?: CreateThreadRequest;
@@ -83,12 +83,12 @@ export interface ThreadResponse {
 
 export interface FeedbackResponse {
   id: number;
-  feedbackType: "POSITIVE" | "NEGATIVE";
+  feedbackType?: "POSITIVE" | "NEGATIVE";
   feedbackText?: string;
   isRead: boolean;
   isDeleted: boolean;
   userId?: number;
   externalUserId?: number;
-  createdAt: "2024-09-18T05:14:21.634Z";
-  updatedAt: "2024-09-18T05:14:21.634Z";
+  createdAt: Date;
+  updatedAt: Date;
 }
