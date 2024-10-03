@@ -43,7 +43,7 @@ export type CreateFeedbackRequest = {
   externalUser?: CreateExternalUserRequest;
   thread?: CreateThreadRequest;
   externalThreadId?: string;
-  externalMessageId: string;
+  externalMessageId?: string;
   attributes?: Record<string, string>;
 };
 
