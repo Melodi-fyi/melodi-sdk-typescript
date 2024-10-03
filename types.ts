@@ -12,7 +12,7 @@ export type Metadata = {
 
 export type CreateMessageRequest = {
   externalId: string;
-  type?: "mardkown" | "json";
+  type?: "markdown" | "json";
 
   role: string;
 
