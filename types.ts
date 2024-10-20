@@ -44,6 +44,7 @@ export type CreateFeedbackRequest = {
   thread?: CreateThreadRequest;
   externalThreadId?: string;
   externalMessageId?: string;
+  projectId?: number;
   attributes?: Record<string, string>;
 };
 
