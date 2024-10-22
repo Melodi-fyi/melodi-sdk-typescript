@@ -45,6 +45,7 @@ export type CreateFeedbackRequest = {
   externalThreadId?: string;
   externalMessageId?: string;
   projectId?: number;
+  projectName?: string;
   attributes?: Record<string, string>;
 };
 
