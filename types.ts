@@ -94,3 +94,7 @@ export interface FeedbackResponse {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface UserResponse extends CreateExternalUserRequest {
+  id: number;
+}
