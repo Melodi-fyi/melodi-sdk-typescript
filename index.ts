@@ -1,6 +1,7 @@
 import { createFeedback } from "./feedback";
 import { createProject, listProjects } from "./projects";
 import { createOrUpdateThread } from "./threads";
+import { createOrUpdateUser } from "./users";
 
 import {
   CreateExternalUserRequest,
@@ -12,9 +13,16 @@ import {
   Metadata,
   ProjectResponse,
   ThreadResponse,
+  UserResponse,
 } from "./types";
 
-export { createFeedback, createOrUpdateThread, createProject, listProjects };
+export {
+  createFeedback,
+  createOrUpdateThread,
+  createOrUpdateUser,
+  createProject,
+  listProjects,
+};
 
 export {
   CreateExternalUserRequest,
@@ -26,4 +34,5 @@ export {
   Metadata,
   ProjectResponse,
   ThreadResponse,
+  UserResponse,
 };

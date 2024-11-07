@@ -1,21 +1,28 @@
 import {
-  CreateExternalUserRequest,
   createFeedback,
   CreateFeedbackRequest,
   createOrUpdateThread,
+  createOrUpdateUser,
   CreateThreadRequest,
+  UserResponse,
 } from "@melodi/melodi-sdk-typescript";
 import "dotenv/config";
 
-async function createExampleThread() {
-  const externalThreadId = "typescript-sdk-example-11";
-  const externalUser: CreateExternalUserRequest = {
-    externalId: "testuserid1",
-    name: "Greg Brown",
-    email: "greg+test@melodi.fyi",
-    segments: { team: "engineering" },
-  };
+const externalUserId = "user-sdk-example-1";
+const externalThreadId = "typescript-sdk-example-12";
 
+async function createExampleUser() {
+  const user: UserResponse = await createOrUpdateUser({
+    externalId: externalUserId,
+    name: "Example User",
+    email: "testuser@melodi.fyi",
+    segments: { team: "engineering" },
+  });
+
+  return user;
+}
+
+async function createExampleThread() {
   const createThreadRequest: CreateThreadRequest = {
     projectId: 64,
     externalId: externalThreadId,
@@ -31,11 +38,12 @@ async function createExampleThread() {
         content: "Hi!",
       },
     ],
-    externalUser,
+    externalUser: {
+      externalId: externalUserId,
+    },
   };
 
-  const response1 = await createOrUpdateThread(createThreadRequest);
-  console.log(response1);
+  await createOrUpdateThread(createThreadRequest);
 
   const createThreadRequest2: CreateThreadRequest = {
     projectId: 64,
@@ -75,20 +83,31 @@ async function createExampleThread() {
     ],
   };
 
-  const response2 = await createOrUpdateThread(createThreadRequest2);
-  console.log(response2);
+  return await createOrUpdateThread(createThreadRequest2);
+}
 
+async function createExampleFeedback() {
   const feedbackRequest: CreateFeedbackRequest = {
-    externalThreadId: externalThreadId,
+    externalThreadId,
     externalMessageId: "5",
     attributes: {
       Quality: "Wonderful",
     },
-    externalUser,
+    externalUser: {
+      externalId: externalUserId,
+    },
   };
 
-  const response3 = await createFeedback(feedbackRequest);
-  console.log(response3);
+  return await createFeedback(feedbackRequest);
 }
 
-createExampleThread();
+async function runExamples() {
+  const user = await createExampleUser();
+  console.log(user);
+  const thread = await createExampleThread();
+  console.log(thread);
+  const feedback = await createExampleFeedback();
+  console.log(feedback);
+}
+
+runExamples();
