@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Melodi-fyi/melodi-sdk-typescript#readme",
   "devDependencies": {
-    "@types/node": "^20.14.9"
+    "@types/node": "^20.14.9",
+    "typescript": "^5.6.3"
   }
 }
