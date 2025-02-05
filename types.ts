@@ -35,6 +35,7 @@ export type CreateThreadRequest = {
   messages: CreateMessageRequest[];
   metadata?: Metadata;
   externalUser?: CreateExternalUserRequest;
+  createdAt?: string;
 };
 
 export type CreateFeedbackRequest = {
