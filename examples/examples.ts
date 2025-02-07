@@ -6,6 +6,10 @@ import {
   CreateThreadRequest,
   UserResponse,
 } from "@melodi/melodi-sdk-typescript";
+
+// You'll either need a .env file specifying MELODI_API_KEY or you can pass
+// it as an argument to the individual calls like so:
+// await createOrUpdateThread(createThreadRequest, "<MY_API_KEY>");
 import "dotenv/config";
 
 const externalUserId = "user-sdk-example-1";
