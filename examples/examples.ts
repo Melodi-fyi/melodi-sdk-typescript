@@ -9,7 +9,9 @@ import {
 import "dotenv/config";
 
 const externalUserId = "user-sdk-example-1";
-const externalThreadId = "typescript-sdk-example-12";
+const externalThreadId = `typescript-sdk-example-${Math.floor(
+  Math.random() * 10000
+)}`;
 
 async function createExampleUser() {
   const user: UserResponse = await createOrUpdateUser({
