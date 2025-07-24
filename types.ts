@@ -11,7 +11,7 @@ export type Metadata = {
 };
 
 export type CreateMessageRequest = {
-  externalId: string;
+  externalId?: string;
   type?: "markdown" | "json";
 
   role: string;
